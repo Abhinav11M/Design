@@ -1,5 +1,7 @@
 package com.desing.pattern;
 
+import java.net.URI;
+
 import com.design.bridge.AppleTV;
 import com.design.bridge.ConcreteTVRemoteControl;
 import com.design.bridge.TV;
@@ -8,6 +10,9 @@ import com.design.composite.LeafFile;
 import com.design.decorator.ColorDecorator;
 import com.design.decorator.House;
 import com.design.decorator.SimpleHouse;
+import com.design.proxy.Image;
+import com.design.proxy.ProxyImage;
+import com.design.proxy.RealImage;
 
 public class DesignAppMain {
 	public static void main(String[] args) {
@@ -37,5 +42,13 @@ public class DesignAppMain {
 		System.out.println(h2.makeHouse());
 		// =====Decorator =====
 		
+		
+		// ===== Proxy =====
+		Image image = new RealImage(URI.create(""));
+		image.showImage();
+		
+		Image imageProxy = new ProxyImage(URI.create(""));
+		imageProxy.showImage();
+		// ===== Proxy =====
 	}
 }
