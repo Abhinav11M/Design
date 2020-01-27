@@ -10,6 +10,8 @@ import com.design.composite.LeafFile;
 import com.design.decorator.ColorDecorator;
 import com.design.decorator.House;
 import com.design.decorator.SimpleHouse;
+import com.design.flyweight.MyShape;
+import com.design.flyweight.ShapeFactory;
 import com.design.proxy.Image;
 import com.design.proxy.ProxyImage;
 import com.design.proxy.RealImage;
@@ -50,5 +52,20 @@ public class DesignAppMain {
 		Image imageProxy = new ProxyImage(URI.create(""));
 		imageProxy.showImage();
 		// ===== Proxy =====
+		
+		
+		// ===== FlyWeight =====
+		ShapeFactory shapeFactory = new ShapeFactory();
+		MyShape rectangle1 = shapeFactory.getShape("Rectangle");
+		rectangle1.draw("MyFont1", "MyColor1", "12");
+		MyShape rectangle2 = shapeFactory.getShape("Rectangle");
+		rectangle2.draw("MyFont2", "MyColor2", "14");
+		MyShape oval1 = shapeFactory.getShape("Oval");
+		oval1.draw("MyFont1", "MyColor2", "13");
+		MyShape oval2 = shapeFactory.getShape("Oval");
+		oval2.draw("MyFont2", "MyColor1", "14");
+		
+		// ===== FlyWeight =====
+		
 	}
 }
